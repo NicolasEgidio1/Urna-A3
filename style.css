@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgb(11, 0, 59),rgb(112, 112, 112));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+#candidate1-img {
+    width: 200px; /* Defina a largura desejada */
+    height: 200px; /* Isso manterá a proporção original da imagem */
+}
+
+#candidate2-img {
+    width: 200px; /* Defina a largura desejada */
+    height: 200px; /* Isso manterá a proporção original da imagem */
+}
+
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.candidate {
+    margin-bottom: 15px;
+}
+
+.candidate input {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

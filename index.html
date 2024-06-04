@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urna de Votos</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Urna de Votos</h1>
+        <form id="voting-form" method="POST">
+            <div class="candidate">
+                <h2>Candidato Diogo Defante</h2>
+                <input type="radio" id="candidate1" name="candidato_id" value="1">
+                <label for="candidate1">Candidato 1</label>
+                <img src="/static/img/410467627_303220665386997_9001959151810339583_n.jpg" alt="Candidato Diogo Defante" id="candidate1-img">
+            </div>
+            <div class="candidate">
+                <h2>Neymar JR.</h2>
+                <input type="radio" id="candidate2" name="candidato_id" value="2">
+                <label for="candidate2">Candidato 2</label>
+                <img src="/static/img/434854027_628247662820134_35436523322556789_n.jpg" alt="Candidato Neymar" id="candidate2-img">
+
+
+            </div>
+            <div class="candidate">
+                <h2>Severino</h2>
+                <input type="radio" id="candidate3" name="candidato_id" value="3">
+                <label for="candidate3">Candidato 3</label>
+            </div>
+            <button type="submit">Votar</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('voting-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const selectedCandidate = document.querySelector('input[name="candidato_id"]:checked');
+            if (selectedCandidate) {
+                const candidateId = selectedCandidate.value;
+                fetch('/votar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ candidato_id: candidateId })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(`Você votou em: ${data.message}`);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+            } else {
+                alert('Por favor, selecione um candidato.');
+            }
+        });
+    </script>
+
+    
+    
+    
+    
+    
+</body>
+</html>
